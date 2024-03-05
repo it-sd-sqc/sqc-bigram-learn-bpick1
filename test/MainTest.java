@@ -59,6 +59,18 @@ class MainTest {
         () -> assertDoesNotThrow(() -> Main.main(new String[]{"./sample-texts/empty.txt"}))
     );
   }
-
   // TODO: Create your test(s) below. /////////////////////////////////////////
+  @Test
+  void getId() {
+    Connection db = Main.createConnection();
+    String word = "This's a word";
+    assertDoesNotThrow(
+        () -> {
+          Main.getId(db, word);
+          db.close();
+        }
+    );
+  }
+
+
 }
